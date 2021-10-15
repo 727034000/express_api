@@ -31,7 +31,7 @@ const typeList = {
     },
 }
 
-app.get('/haha/api/:tokenId(\\d+)', async (req, res) => {
+app.get('/api/factory/reward/:tokenId(\\d+)', async (req, res) => {
     const id = req.params.tokenId
     const contract = new web3.eth.Contract(JSON.parse(nft_abi), nft_address);
     try {
