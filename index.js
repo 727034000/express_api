@@ -9,6 +9,11 @@ const nft_abi = `[{"inputs":[{"internalType":"uint256","name":"","type":"uint256
 
 
 const typeList = {
+    0: {
+        "name": "卡不存在",
+        "image": "error.jpg",
+        "description": "卡不存在"
+    },
     1: {
         "name": "珍稀卡1",
         "image": "1.jpg",
@@ -18,6 +23,11 @@ const typeList = {
         "name": "珍稀卡2",
         "image": "2.jpg",
         "description": "这种是珍稀卡2"
+    },
+    3: {
+        "name": "珍稀卡3",
+        "image": "3.jpg",
+        "description": "这种是珍稀卡3"
     },
     20: {
         "name": "功能卡10",
@@ -36,6 +46,7 @@ app.get('/api/factory/reward/:tokenId(\\d+)', async (req, res) => {
     const contract = new web3.eth.Contract(JSON.parse(nft_abi), nft_address);
     try {
         const ret = await contract.methods.TypeList(id).call();
+        console.log(ret)
         const typeid = ret.typeid
         const type = typeList[typeid]
         const return_data = {
@@ -46,6 +57,7 @@ app.get('/api/factory/reward/:tokenId(\\d+)', async (req, res) => {
         }
         res.json(return_data)
     } catch (e) {
+        console.log(e)
         res.send('error')
     }
 })
