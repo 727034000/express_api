@@ -3,8 +3,10 @@ const app = express()
 const port = 3000
 
 const Web3 = require('web3')
-const web3 = new Web3('https://http-mainnet.hecochain.com')
-const nft_address = '0x7c0f2b57939d54cf995ad086fb28e9a41d4370f4'
+//const web3 = new Web3('https://http-mainnet.hecochain.com')
+//const nft_address = '0x7c0f2b57939d54cf995ad086fb28e9a41d4370f4'
+const web3 = new Web3('https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161')
+const nft_address = '0xa2EF95CeF5ABf04695CEAfb14524BAf6a8D30d9D'
 const nft_abi = `[{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"TypeList","outputs":[{"internalType":"uint256","name":"poolinfo","type":"uint256"},{"internalType":"uint256","name":"typeid","type":"uint256"}],"stateMutability":"view","type":"function"}]`
 
 
